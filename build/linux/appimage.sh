@@ -66,7 +66,7 @@ chmod +x linuxdeploy.AppImage
 
 mkdir -p "$(dirname "$OUTPUT")"
 
-LDAI_OUTPUT="$OUTPUT" DEPLOY_GTK_VERSION="3" "$TMPDIR/linuxdeploy.AppImage" --appimage-extract-and-run --appdir "$APPDIR" --plugin gtk --plugin gstreamer --output appimage
+LDAI_OUTPUT="$OUTPUT" DEPLOY_GTK_VERSION="3" "$TMPDIR/linuxdeploy.AppImage" --appimage-extract-and-run --appdir "$APPDIR" --plugin gtk --plugin gstreamer --exclude-library "libssl.so*" --exclude-library "libcrypto.so*" --output appimage
 
 rm -rf "$TMPDIR"
 rm -rf "$APPDIR"
