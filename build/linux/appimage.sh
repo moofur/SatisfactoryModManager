@@ -66,6 +66,7 @@ chmod +x linuxdeploy.AppImage
 
 mkdir -p "$(dirname "$OUTPUT")"
 
+# Exclude libssl and libcrypto from AppImage to avoid compatibility issues (issue #335)
 LDAI_OUTPUT="$OUTPUT" DEPLOY_GTK_VERSION="3" "$TMPDIR/linuxdeploy.AppImage" --appimage-extract-and-run --appdir "$APPDIR" --plugin gtk --plugin gstreamer --exclude-library "libssl.so*" --exclude-library "libcrypto.so*" --output appimage
 
 rm -rf "$TMPDIR"
